@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuadernos SUSU</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --rosa:#f7d9e3;
+  --rosa2:#fdecef;
+  --dorado:#c9a24d;
+  --gris:#333;
+  --negro:#111;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--rosa2);
+  color:var(--gris);
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  text-align:center;
+  padding:20px;
+  border-bottom:3px solid var(--rosa);
+}
+
+header img{
+  max-width:220px;
+}
+
+/* NAV */
+nav{
+  background:var(--rosa);
+  padding:12px;
+  text-align:center;
+}
+
+nav a{
+  margin:0 12px;
+  font-weight:600;
+  color:#444;
+  text-decoration:none;
+}
+
+/* SECCIÓN PRODUCTOS */
+#productos{
+  background:#111;
+  padding:60px 20px;
+}
+
+#productos h2{
+  text-align:center;
+  color:#fff;
+  font-size:38px;
+  margin-bottom:50px;
+}
+
+/* GRID */
+.categorias{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+/* CARD CATEGORÍA */
+.categoria{
+  position:relative;
+  height:230px;
+  border-radius:20px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(0,0,0,.4);
+}
+
+.categoria img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* OVERLAY COLOR */
+.categoria::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(247,217,227,.65);
+}
+
+.categoria h3{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  color:#fff;
+  font-weight:700;
+  z-index:2;
+  text-shadow:0 3px 8px rgba(0,0,0,.6);
+  transition:.3s;
+}
+
+/* HOVER */
+.categoria:hover h3{
+  transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+  background:#fff;
+  text-align:center;
+  padding:15px;
+  border-top:3px solid var(--rosa);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  #productos h2{
+    font-size:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.jpeg" alt="SUSU">
+</header>
+
+<nav>
+  <a href="#">Inicio</a>
+  <a href="#">Productos</a>
+  <a href="#">Cómo comprar</a>
+  <a href="#">Contacto</a>
+</nav>
+
+<section id="productos">
+  <h2>Nuestros productos</h2>
+
+  <div class="categorias">
+
+    <a href="cuadernos.html" class="categoria">
+      <img src="cuadernos.jpg">
+      <h3>Cuadernos</h3>
+    </a>
+
+    <a href="ficheros.html" class="categoria">
+      <img src="ficheros.jpg">
+      <h3>Ficheros</h3>
+    </a>
+
+    <a href="anotadores.html" class="categoria">
+      <img src="anotadores.jpg">
+      <h3>Anotadores</h3>
+    </a>
+
+    <a href="repuestos.html" class="categoria">
+      <img src="repuestos.jpg">
+      <h3>Repuestos</h3>
+    </a>
+
+    <a href="agendas.html" class="categoria">
+      <img src="agendas.jpg">
+      <h3>Agendas 2026</h3>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+© 2026 SUSU
+</footer>
+
+</body>
+</html>
