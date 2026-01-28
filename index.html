@@ -11,7 +11,6 @@
 :root{
   --rosa:#f7d9e3;
   --rosa2:#fdecef;
-  --dorado:#c9a24d;
   --gris:#333;
   --negro:#111;
 }
@@ -53,7 +52,7 @@ nav a{
   text-decoration:none;
 }
 
-/* SECCIÓN PRODUCTOS */
+/* PRODUCTOS */
 #productos{
   background:#111;
   padding:60px 20px;
@@ -66,7 +65,6 @@ nav a{
   margin-bottom:50px;
 }
 
-/* GRID */
 .categorias{
   max-width:1100px;
   margin:auto;
@@ -75,7 +73,6 @@ nav a{
   gap:25px;
 }
 
-/* CARD CATEGORÍA */
 .categoria{
   position:relative;
   height:230px;
@@ -91,7 +88,6 @@ nav a{
   object-fit:cover;
 }
 
-/* OVERLAY COLOR */
 .categoria::after{
   content:'';
   position:absolute;
@@ -110,12 +106,19 @@ nav a{
   font-weight:700;
   z-index:2;
   text-shadow:0 3px 8px rgba(0,0,0,.6);
-  transition:.3s;
 }
 
-/* HOVER */
-.categoria:hover h3{
-  transform:scale(1.1);
+/* SECCIONES */
+.seccion{
+  padding:70px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.seccion h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:20px;
 }
 
 /* FOOTER */
@@ -124,13 +127,6 @@ footer{
   text-align:center;
   padding:15px;
   border-top:3px solid var(--rosa);
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  #productos h2{
-    font-size:30px;
-  }
 }
 </style>
 </head>
@@ -142,10 +138,10 @@ footer{
 </header>
 
 <nav>
-  <a href="#">Inicio</a>
-  <a href="#">Productos</a>
-  <a href="#">Cómo comprar</a>
-  <a href="#">Contacto</a>
+  <a href="#productos">Productos</a>
+  <a href="#cuadernos">Cuadernos</a>
+  <a href="#agendas">Agendas</a>
+  <a href="#contacto">Contacto</a>
 </nav>
 
 <section id="productos">
@@ -153,32 +149,62 @@ footer{
 
   <div class="categorias">
 
-    <a href="cuadernos.html" class="categoria">
+    <a href="#cuadernos" class="categoria">
       <img src="cuadernos.jpg">
       <h3>Cuadernos</h3>
     </a>
 
-    <a href="ficheros.html" class="categoria">
+    <a href="#ficheros" class="categoria">
       <img src="ficheros.jpg">
       <h3>Ficheros</h3>
     </a>
 
-    <a href="anotadores.html" class="categoria">
+    <a href="#anotadores" class="categoria">
       <img src="anotadores.jpg">
       <h3>Anotadores</h3>
     </a>
 
-    <a href="repuestos.html" class="categoria">
+    <a href="#repuestos" class="categoria">
       <img src="repuestos.jpg">
       <h3>Repuestos</h3>
     </a>
 
-    <a href="agendas.html" class="categoria">
+    <a href="#agendas" class="categoria">
       <img src="agendas.jpg">
       <h3>Agendas 2026</h3>
     </a>
 
   </div>
+</section>
+
+<section id="cuadernos" class="seccion">
+  <h2>Cuadernos</h2>
+  <p>Aquí puedes mostrar modelos, tamaños y precios.</p>
+</section>
+
+<section id="ficheros" class="seccion">
+  <h2>Ficheros</h2>
+  <p>Información de ficheros disponibles.</p>
+</section>
+
+<section id="anotadores" class="seccion">
+  <h2>Anotadores</h2>
+  <p>Detalles de anotadores.</p>
+</section>
+
+<section id="repuestos" class="seccion">
+  <h2>Repuestos</h2>
+  <p>Tipos de repuestos.</p>
+</section>
+
+<section id="agendas" class="seccion">
+  <h2>Agendas 2026</h2>
+  <p>Modelos y diseños disponibles.</p>
+</section>
+
+<section id="contacto" class="seccion">
+  <h2>Contacto</h2>
+  <p>WhatsApp, Instagram o redes.</p>
 </section>
 
 <footer>
