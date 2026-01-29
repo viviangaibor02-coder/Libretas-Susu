@@ -260,7 +260,40 @@
 .contacto-box a:hover{
   color:var(--dorado);
 }
-    
+
+/* ===== ICONOS CONTACTO ===== */
+.contacto-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:18px 0;
+  font-size:16px;
+}
+
+.icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--rosa2);
+  font-size:18px;
+  box-shadow:0 4px 8px rgba(0,0,0,.12);
+}
+
+/* WhatsApp suave */
+.icon.whatsapp{
+  background:linear-gradient(135deg,#e7f6ee,var(--rosa2));
+}
+
+/* Instagram estilo SUSU */
+.icon.instagram{
+  background:linear-gradient(135deg,var(--rosa),var(--dorado));
+  color:#fff;
+  font-weight:700;
+}
   </style>
 </head>
 
@@ -358,27 +391,27 @@
     </h3>
   </div>
 
-  <div class="contacto-box">
-    <p>
-      📧 <strong>Correo:</strong><br>
-      <a href="mailto:sgaiboranrango.anam@gmail.com">
-        sgaiboranrango.anam@gmail.com
-      </a>
-    </p>
+<div class="contacto-box">
 
-    <p>
-      💬 <strong>WhatsApp:</strong><br>
-      <a href="https://wa.me/5491158825695" target="_blank">
-        +54 9 11 5882 5695
-      </a>
-    </p>
+  <div class="contacto-item">
+    <span class="icon">✉</span>
+    <a href="mailto:sgaiboranrango.anam@gmail.com">
+      sgaiboranrango.anam@gmail.com
+    </a>
+  </div>
 
-    <p>
-      📸 <strong>Instagram:</strong><br>
-      <a href="https://instagram.com/libretas_susu" target="_blank">
-        @libretas_susu
-      </a>
-    </p>
+  <div class="contacto-item">
+    <span class="icon whatsapp">💬</span>
+    <a href="https://wa.me/5491158825695" target="_blank">
+      +54 9 11 5882 5695
+    </a>
+  </div>
+
+  <div class="contacto-item">
+    <span class="icon instagram">◎</span>
+    <a href="https://instagram.com/libretas_susu" target="_blank">
+      @libretas_susu
+    </a>
   </div>
 </section>
   
