@@ -234,12 +234,7 @@ button{
   object-fit:cover;
   border-radius:12px;
 }
-  <div class="cantidad-box">
-  <button onclick="cambiarCantidad(-1)">-</button>
-  <span id="cantidad">1</span>
-  <button onclick="cambiarCantidad(1)">+</button>
-</div>
-  
+
 </style>
 </head>
 
@@ -426,6 +421,23 @@ function agregarCarrito(){
   alert("Producto agregado al carrito 🛒");
   cerrarModal();
 }
+let hojaSeleccionada = null;
+let cantidadActual = 1;
+
+function seleccionarHoja(btn){
+  document.querySelectorAll('.opciones-grid button')
+    .forEach(b => b.classList.remove('activo'));
+
+  btn.classList.add('activo');
+  hojaSeleccionada = btn.innerText;
+}
+
+function cambiarCantidad(valor){
+  cantidadActual += valor;
+  if(cantidadActual < 1) cantidadActual = 1;
+  document.getElementById("cantidad").innerText = cantidadActual;
+}
+    
 </script>
   
 </body>
