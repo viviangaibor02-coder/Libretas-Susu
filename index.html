@@ -129,14 +129,6 @@ footer{
   border-top:3px solid var(--rosa);
 }
 
-/* GRID DE PRODUCTOS */
-.productos-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:25px;
-  margin-top:40px;
-}
-
 /* CARD PRODUCTO */
 .producto{
   background:#fff;
@@ -265,12 +257,14 @@ button{
   border-radius:10px;
 }
 
-  .producto img{
+ .producto img{
   width:100%;
-  height:220px;
-  object-fit:cover;
+  height:auto;
+  max-height:220px;
+  object-fit:contain;
   border-radius:12px;
 }
+  
 select {
   width:100%;
   padding:10px;
@@ -391,7 +385,7 @@ select {
   background:#fff;
 }
 
-  /* PRODUCTOS - PC */
+/* PRODUCTOS - PC */
 .productos-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -405,6 +399,24 @@ select {
   }
 }
 
+@media(max-width:768px){
+
+  .producto{
+    padding:12px;
+  }
+
+  .producto h4{
+    font-size:14px;
+    text-align:center;
+    line-height:1.2;
+  }
+
+  .producto span{
+    font-size:15px;
+    text-align:center;
+  }
+}
+  
 /* NUESTROS PRODUCTOS - PC */
 .categorias{
   display:grid;
