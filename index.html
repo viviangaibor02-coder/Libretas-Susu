@@ -163,7 +163,65 @@ footer{
   color:#c9a24d;
   font-size:18px;
 }
-</style>
+  
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:999;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-contenido{
+  background:#fff;
+  width:90%;
+  max-width:500px;
+  border-radius:20px;
+  padding:20px;
+  position:relative;
+}
+
+.modal img{
+  width:100%;
+  border-radius:15px;
+}
+
+.cerrar{
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.modal h3{
+  margin:15px 0 5px;
+}
+
+.precio{
+  font-weight:700;
+  color:#c9a24d;
+  font-size:20px;
+}
+
+select, input{
+  width:100%;
+  padding:8px;
+  margin:10px 0;
+}
+
+button{
+  width:100%;
+  background:#f7d9e3;
+  border:none;
+  padding:10px;
+  font-weight:600;
+  cursor:pointer;
+  border-radius:10px;
+}
   
 </style>
 </head>
@@ -217,26 +275,38 @@ footer{
 <section id="cuadernos" class="seccion">
   <h2>Cuadernos</h2>
 
-  <div class="productos-grid">
+ <div class="producto" onclick="abrirModal(
+  'Cuaderno A5 Floral',
+  '$5.00',
+  'imagenes/cuadernos1.jpg',
+  true
+)">
+  <img src="imagenes/cuadernos1.jpg">
+  <h4>Cuaderno A5 Floral</h4>
+  <span>$5.00</span>
+</div>
 
-    <div class="producto">
-      <img src="imagenes/cuadernos1.jpg">
-      <h4>Cuaderno A5 Floral</h4>
-      <span>$5.00</span>
-    </div>
+   <div class="producto" onclick="abrirModal(
+  'Cuaderno A5 Floral',
+  '$5.00',
+  'imagenes/cuadernos1.jpg',
+  true
+)">
+  <img src="imagenes/cuadernos1.jpg">
+  <h4>Cuaderno A5 Floral</h4>
+  <span>$5.00</span>
+</div>
 
-    <div class="producto">
-      <img src="imagenes/cuadernos2.jpg">
-      <h4>Cuaderno Rayado</h4>
-      <span>$4.50</span>
-    </div>
-
-    <div class="producto">
-      <img src="imagenes/cuadernos3.jpg">
-      <h4>Cuaderno Tapa Dura</h4>
-      <span>$6.00</span>
-    </div>
-
+  <div class="producto" onclick="abrirModal(
+  'Cuaderno A5 Floral',
+  '$5.00',
+  'imagenes/cuadernos1.jpg',
+  true
+)">
+  <img src="imagenes/cuadernos1.jpg">
+  <h4>Cuaderno A5 Floral</h4>
+  <span>$5.00</span>
+</div>
   </div>
 </section>
 
@@ -282,5 +352,54 @@ footer{
 © 2026 SUSU
 </footer>
 
+  <div class="modal" id="modalProducto">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal()">✖</span>
+
+    <img id="modalImg">
+    <h3 id="modalNombre"></h3>
+    <p class="precio" id="modalPrecio"></p>
+
+    <!-- SOLO PARA CUADERNOS -->
+    <select id="tipoHoja" style="display:none">
+      <option>Rayadas</option>
+      <option>Cuadriculadas</option>
+      <option>Punteadas</option>
+      <option>Lisas</option>
+    </select>
+
+    <input type="number" id="cantidad" min="1" value="1">
+
+    <button onclick="agregarCarrito()">Agregar al carrito</button>
+  </div>
+</div>
+
+  <script>
+let carrito = 0;
+let productoActual = {};
+
+function abrirModal(nombre, precio, imagen, esCuaderno){
+  document.getElementById('modalProducto').style.display='flex';
+  document.getElementById('modalNombre').innerText = nombre;
+  document.getElementById('modalPrecio').innerText = precio;
+  document.getElementById('modalImg').src = imagen;
+
+  productoActual = { nombre, precio };
+
+  document.getElementById('tipoHoja').style.display =
+    esCuaderno ? 'block' : 'none';
+}
+
+function cerrarModal(){
+  document.getElementById('modalProducto').style.display='none';
+}
+
+function agregarCarrito(){
+  carrito++;
+  alert("Producto agregado al carrito 🛒");
+  cerrarModal();
+}
+</script>
+  
 </body>
 </html>
