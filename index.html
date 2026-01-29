@@ -208,6 +208,37 @@ footer{
   max-height:90vh;
   overflow-y:auto;
 }
+  .modal-galeria{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-galeria img{
+  width:100%;
+  border-radius:15px;
+}
+
+.flecha{
+  position:absolute;
+  background:rgba(0,0,0,.5);
+  color:#fff;
+  border:none;
+  font-size:22px;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:50%;
+}
+
+.flecha:first-child{
+  left:10px;
+}
+
+.flecha:last-child{
+  right:10px;
+}
+  
 
 .precio{
   font-weight:700;
@@ -422,7 +453,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Cuaderno A4 Floral',
       '$11.000',
-      'imagenes/1cuadernoA4.jpeg',
+      [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
       'cuaderno'
     )">
       <img src="imagenes/1cuadernoA4.jpeg">
@@ -433,7 +468,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Cuaderno A5 Floral',
       '$5.00',
-      'imagenes/cuadernos1.jpg',
+       [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
       'cuaderno'
     )">
       <img src="imagenes/cuadernos1.jpg">
@@ -444,7 +483,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Cuaderno A5 Floral',
       '$5.00',
-      'imagenes/cuadernos1.jpg',
+       [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
       'cuaderno'
     )">
       <img src="imagenes/cuadernos1.jpg">
@@ -463,7 +506,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Fichero N3 (x100 hojas)',
       '$8.000',
-      'imagenes/fichero1.jpeg',
+ [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
       'fichero'
     )">
       <img src="imagenes/fichero1.jpeg">
@@ -474,7 +521,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Fichero N3 (x50 hojas)',
       '$7.000',
-      'imagenes/fichero3.jpeg',
+       [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
       'fichero'
     )">
       <img src="imagenes/fichero3.jpeg">
@@ -485,7 +536,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Fichero N2 (x100 hojas)',
       '$6.500',
-      'imagenes/fichero2.jpeg',
+       [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
       'fichero'
     )">
       <img src="imagenes/fichero2.jpeg">
@@ -504,7 +559,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Agenda Anual colores pasteles',
       '$14.000',
-      'imagenes/agendas1.jpg',
+       [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
        null
     )">
       <img src="imagenes/agendas1.jpg">
@@ -515,7 +574,11 @@ select {
     <div class="producto" onclick="abrirModal(
       'Agenda de estudio Diseño Stitch',
       '$14.000',
-      'imagenes/agendas1.jpg',
+      [
+    'imagenes/1cuadernoA4.jpeg',
+    'imagenes/1cuadernoA4-dentro.jpeg',
+    'imagenes/1cuadernoA4-hojas.jpeg'
+  ],
        null
     )">
       <img src="imagenes/agendas1.jpg">
@@ -528,7 +591,54 @@ select {
 
 <section id="repuestos" class="seccion">
   <h2>Repuestos</h2>
-  <p>Tipos de repuestos.</p>
+
+  <div class="productos-grid">
+
+    <div class="producto" onclick="abrirModal(
+      'Repuesto A4',
+      '$4.000',
+      ['imagenes/repuestoA4.jpeg'],
+      'cuaderno'
+    )">
+      <img src="imagenes/repuestoA4.jpeg">
+      <h4>Repuesto A4</h4>
+      <span>$4.000</span>
+    </div>
+
+    <div class="producto" onclick="abrirModal(
+      'Repuesto A5',
+      '$3.000',
+      ['imagenes/repuestoA5.jpeg'],
+      'cuaderno'
+    )">
+      <img src="imagenes/repuestoA5.jpeg">
+      <h4>Repuesto A5</h4>
+      <span>$3.000</span>
+    </div>
+
+    <div class="producto" onclick="abrirModal(
+      'Repuesto Fichero N3',
+      '$3.500',
+      ['imagenes/repuestoN3.jpeg'],
+      'fichero'
+    )">
+      <img src="imagenes/repuestoN3.jpeg">
+      <h4>Repuesto Fichero N3</h4>
+      <span>$3.500</span>
+    </div>
+
+    <div class="producto" onclick="abrirModal(
+      'Repuesto Fichero N2',
+      '$3.000',
+      ['imagenes/repuestoN2.jpeg'],
+      'fichero'
+    )">
+      <img src="imagenes/repuestoN2.jpeg">
+      <h4>Repuesto Fichero N2</h4>
+      <span>$3.000</span>
+    </div>
+
+  </div>
 </section>
 
 <section id="contacto" class="seccion">
@@ -544,9 +654,11 @@ select {
   <div class="modal-contenido">
     <span class="cerrar" onclick="cerrarModal()">✖</span>
 
-    <img id="modalImg">
-    <h3 id="modalNombre"></h3>
-    <p class="precio" id="modalPrecio"></p>
+   <div class="modal-galeria">
+  <button class="flecha" onclick="cambiarImagen(-1)">❮</button>
+  <img id="modalImg">
+  <button class="flecha" onclick="cambiarImagen(1)">❯</button>
+</div>
 
    <!-- SOLO PARA CUADERNOS -->
 <div id="tipoHoja" style="display:none">
@@ -584,25 +696,34 @@ select {
 
 <script>
 let carrito = 0;
+let imagenesProducto = [];
+let indiceImagen = 0;
 
-/* ABRIR MODAL */
-function abrirModal(nombre, precio, imagen, tipo){
+function abrirModal(nombre, precio, imagenes, tipo){
   document.getElementById('modalProducto').style.display = 'flex';
   document.getElementById('modalNombre').innerText = nombre;
   document.getElementById('modalPrecio').innerText = precio;
-  document.getElementById('modalImg').src = imagen;
 
-  // ocultar ambos
+  imagenesProducto = imagenes;
+  indiceImagen = 0;
+  document.getElementById('modalImg').src = imagenesProducto[0];
+
   document.getElementById('tipoHoja').style.display = 'none';
   document.getElementById('tipoHojaFichero').style.display = 'none';
 
-  if (tipo === 'cuaderno') {
+  if(tipo === 'cuaderno'){
     document.getElementById('tipoHoja').style.display = 'block';
   }
-
-  if (tipo === 'fichero') {
+  if(tipo === 'fichero'){
     document.getElementById('tipoHojaFichero').style.display = 'block';
   }
+}
+
+function cambiarImagen(direccion){
+  indiceImagen += direccion;
+  if(indiceImagen < 0) indiceImagen = imagenesProducto.length - 1;
+  if(indiceImagen >= imagenesProducto.length) indiceImagen = 0;
+  document.getElementById('modalImg').src = imagenesProducto[indiceImagen];
 }
 
 /* CERRAR MODAL */
