@@ -430,6 +430,26 @@ select {
     grid-template-columns:repeat(2, 1fr);
   }
 }
+
+/* CONTENEDOR DE IMAGEN DEL PRODUCTO */
+.producto .img-box{
+  width:100%;
+  height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+/* IMAGEN */
+.producto .img-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+  
 </style>
 </head>
 
@@ -465,22 +485,30 @@ select {
   <div class="categorias">
 
     <a href="#cuadernos" class="categoria">
-      <img src="imagenes/2-1cuadernoA4.jpeg">
+      <div class="img-box">
+  <img src="imagenes/1cuadernoA4.jpeg">
+</div>
       <h3>Cuadernos</h3>
     </a>
 
     <a href="#ficheros" class="categoria">
-      <img src="imagenes/fichero1.jpeg">
+      <div class="img-box">
+  <img src="imagenes/1cuadernoA4.jpeg">
+</div>
       <h3>Ficheros</h3>
     </a>
 
     <a href="#agendas" class="categoria">
-      <img src="imagenes/3cuadernoA4.jpeg">
+     <div class="img-box">
+  <img src="imagenes/1cuadernoA4.jpeg">
+</div>
       <h3>Agendas</h3>
     </a>
 
        <a href="#repuestos" class="categoria">
-      <img src="repuestos.jpg">
+      <div class="img-box">
+  <img src="imagenes/1cuadernoA4.jpeg">
+</div>
       <h3>Repuestos</h3>
     </a>
 
