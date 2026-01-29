@@ -234,6 +234,11 @@ button{
   object-fit:cover;
   border-radius:12px;
 }
+  <div class="cantidad-box">
+  <button onclick="cambiarCantidad(-1)">-</button>
+  <span id="cantidad">1</span>
+  <button onclick="cambiarCantidad(1)">+</button>
+</div>
   
 </style>
 </head>
@@ -376,15 +381,22 @@ button{
     <p class="precio" id="modalPrecio"></p>
 
     <!-- SOLO PARA CUADERNOS -->
-    <select id="tipoHoja" style="display:none">
-      <option>Rayadas</option>
-      <option>Cuadriculadas</option>
-      <option>Punteadas</option>
-      <option>Lisas</option>
-    </select>
+    <div id="tipoHoja" class="opciones" style="display:none">
+  <p>Hojas</p>
+  <div class="opciones-grid">
+    <button onclick="seleccionarHoja(this)">Rayadas</button>
+    <button onclick="seleccionarHoja(this)">Cuadriculadas</button>
+    <button onclick="seleccionarHoja(this)">Punteadas</button>
+    <button onclick="seleccionarHoja(this)">Lisas</button>
+  </div>
+</div>
 
-    <input type="number" id="cantidad" min="1" value="1">
-
+   <div class="cantidad-box">
+  <button onclick="cambiarCantidad(-1)">-</button>
+  <span id="cantidad">1</span>
+  <button onclick="cambiarCantidad(1)">+</button>
+</div>
+    
     <button onclick="agregarCarrito()">Agregar al carrito</button>
   </div>
 </div>
