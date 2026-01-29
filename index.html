@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cuadernos SUSU</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -59,16 +59,37 @@ nav a{
   margin-bottom:20px;
 }
 
+/* CARRUSEL */
+.carousel-fade{
+  max-width:900px;
+  height:240px;
+  margin:30px auto;
+  position:relative;
+  overflow:hidden;
+}
+.carousel-fade img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.5s;
+}
+.carousel-fade img.activo{opacity:1;}
+@media(max-width:768px){
+  .carousel-fade{display:none;}
+}
+
 /* PRODUCTOS */
 #productos{
   background:#111;
   padding:60px 20px;
 }
 #productos h2{
-  text-align:center;
   color:#fff;
   font-size:38px;
-  margin-bottom:50px;
+  margin-bottom:40px;
 }
 
 /* CATEGORIAS */
@@ -76,8 +97,6 @@ nav a{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:20px;
-  max-width:1100px;
-  margin:auto;
 }
 @media(max-width:768px){
   .categorias{grid-template-columns:repeat(2,1fr);}
@@ -85,10 +104,9 @@ nav a{
 
 .categoria{
   position:relative;
-  height:230px;
+  height:220px;
   border-radius:20px;
   overflow:hidden;
-  cursor:pointer;
 }
 .categoria img{
   width:100%;
@@ -105,11 +123,10 @@ nav a{
   position:absolute;
   inset:0;
   display:flex;
-  align-items:center;
   justify-content:center;
-  font-size:28px;
+  align-items:center;
   color:#fff;
-  font-weight:700;
+  font-size:26px;
   z-index:2;
 }
 
@@ -127,7 +144,6 @@ nav a{
 .producto{
   background:#fff;
   border-radius:18px;
-  box-shadow:0 6px 15px rgba(0,0,0,.15);
   padding:15px;
   cursor:pointer;
 }
@@ -138,12 +154,11 @@ nav a{
 .producto img{
   width:100%;
   height:100%;
-  object-fit:cover;
-  border-radius:12px;
+  object-fit:contain;
 }
 .producto h4{
   margin:10px 0 4px;
-  font-size:16px;
+  font-size:15px;
 }
 .producto span{
   font-weight:700;
@@ -151,107 +166,76 @@ nav a{
 }
 
 /* MODAL */
-.modal{
-  display:none;
+#modalProducto{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.6);
-  z-index:999;
+  display:none;
   justify-content:center;
   align-items:center;
+  z-index:999;
 }
 .modal-contenido{
   background:#fff;
   width:90%;
-  max-width:500px;
-  border-radius:20px;
+  max-width:420px;
   padding:20px;
-  max-height:90vh;
-  overflow-y:auto;
+  border-radius:18px;
+  position:relative;
 }
 .cerrar{
   position:absolute;
   top:10px;
   right:14px;
+  font-size:22px;
   cursor:pointer;
 }
-.modal-galeria{
-  position:relative;
-}
-.modal-galeria img{
+.modal-img{
   width:100%;
-  border-radius:15px;
+  height:260px;
+  object-fit:contain;
 }
+
+/* FLECHAS */
 .flecha{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  background:none;
-  border:none;
-  font-size:30px;
+  background:rgba(255,255,255,.7);
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:22px;
   cursor:pointer;
 }
-.flecha:first-child{left:10px;}
-.flecha:last-child{right:10px;}
+.flecha.izq{left:10px;}
+.flecha.der{right:10px;}
 
-button, select{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:10px;
-  border:1px solid #ddd;
+/* CANTIDAD */
+.cantidad-box{margin-top:15px;}
+.cantidad-controles{
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
-button{
-  background:var(--rosa);
-  font-weight:600;
-  cursor:pointer;
+.cantidad-controles button{
+  width:38px;
+  height:38px;
+  font-size:18px;
 }
-
-/* CARRUSEL INICIO */
-.carousel-fade{
-  max-width:900px;
-  height:240px;
-  margin:30px auto;
-  position:relative;
-  overflow:hidden;
+.cantidad-controles input{
+  width:60px;
+  text-align:center;
 }
-.carousel-fade img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 1.8s ease-in-out;
-}
-.carousel-fade img.activo{opacity:1;}
-@media(max-width:768px){.carousel-fade{display:none;}}
 
 footer{
   background:#fff;
   text-align:center;
   padding:15px;
-  border-top:3px solid var(--rosa);
 }
-
-  @media(max-width:768px){
-  .producto{
-    padding:18px;
-  }
-
-  .producto h4{
-    margin-top:12px;
-    font-size:15px;
-    line-height:1.3;
-  }
-
-  .producto span{
-    display:block;
-    margin-top:6px;
-    font-size:15px;
-  }
-}
-  
 </style>
 </head>
 
@@ -269,14 +253,11 @@ footer{
 
 <section id="inicio" class="seccion">
   <h2>Bienvenidos a SUSU</h2>
-  <p style="text-align:center;max-width:700px;margin:auto;">
-    Papelería delicada, funcional y con amor ✨
-  </p>
+  <p style="text-align:center;">Papelería delicada, funcional y con amor ✨</p>
 
   <div class="carousel-fade">
     <img src="imagenes/1cuadernoA4.jpeg" class="activo">
     <img src="imagenes/1cuadernoA4-dentro.jpeg">
-    <img src="imagenes/1cuadernoA4-hojas.jpeg">
   </div>
 </section>
 
@@ -291,12 +272,11 @@ footer{
   </div>
 </section>
 
-<!-- SECCIONES DE PRODUCTOS YA LIMPIAS -->
-<!-- Ejemplo cuadernos -->
 <section id="cuadernos" class="seccion">
   <h2>Cuadernos</h2>
   <div class="productos-grid">
-    <div class="producto" onclick="abrirModal('Cuaderno A4 Floral','$11.000',['imagenes/1cuadernoA4.jpeg','imagenes/1cuadernoA4-dentro.jpeg'],'cuaderno')">
+    <div class="producto"
+      onclick="abrirModal('Cuaderno A4 Floral','$11.000',['imagenes/1cuadernoA4.jpeg','imagenes/1cuadernoA4-dentro.jpeg'])">
       <div class="img-box"><img src="imagenes/1cuadernoA4.jpeg"></div>
       <h4>Cuaderno A4 Floral</h4>
       <span>$11.000</span>
@@ -304,13 +284,12 @@ footer{
   </div>
 </section>
 
-  <section id="ficheros" class="seccion">
+<section id="ficheros" class="seccion">
   <h2>Ficheros</h2>
   <div class="productos-grid">
-    <div class="producto" onclick="abrirModal('Fichero Floral','$9.500',['imagenes/1cuadernoA4.jpeg'],'fichero')">
-      <div class="img-box">
-        <img src="imagenes/1cuadernoA4.jpeg">
-      </div>
+    <div class="producto"
+      onclick="abrirModal('Fichero Floral','$9.500',['imagenes/1cuadernoA4.jpeg'])">
+      <div class="img-box"><img src="imagenes/1cuadernoA4.jpeg"></div>
       <h4>Fichero Floral</h4>
       <span>$9.500</span>
     </div>
@@ -319,95 +298,69 @@ footer{
 
 <section id="agendas" class="seccion">
   <h2>Agendas</h2>
-  <div class="productos-grid">
-    <div class="producto">
-      <div class="img-box">
-        <img src="imagenes/1cuadernoA4.jpeg">
-      </div>
-      <h4>Agenda 2026</h4>
-      <span>$10.000</span>
-    </div>
-  </div>
 </section>
 
 <section id="repuestos" class="seccion">
   <h2>Repuestos</h2>
-  <div class="productos-grid">
-    <div class="producto">
-      <div class="img-box">
-        <img src="imagenes/1cuadernoA4.jpeg">
-      </div>
-      <h4>Repuesto Rayado</h4>
-      <span>$4.500</span>
-    </div>
-  </div>
 </section>
 
 <section id="contacto" class="seccion">
   <h2>Contacto</h2>
-  <p>WhatsApp · Instagram · Redes</p>
+  <p>WhatsApp · Instagram</p>
 </section>
 
 <footer>© 2026 SUSU</footer>
 
-<div class="modal" id="modalProducto">
+<!-- MODAL -->
+<div id="modalProducto">
   <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarModal()">✖</span>
-    <div class="modal-galeria">
-      <button class="flecha" onclick="cambiarImagen(-1)">❮</button>
-      <img id="modalImg">
-      <button class="flecha" onclick="cambiarImagen(1)">❯</button>
-    </div>
-    <h3 id="modalNombre"></h3>
+    <span class="cerrar" onclick="cerrarModal()">✕</span>
+    <div class="flecha izq" onclick="cambiarImg(-1)">‹</div>
+    <img id="modalImg" class="modal-img">
+    <div class="flecha der" onclick="cambiarImg(1)">›</div>
+
+    <h3 id="modalTitulo"></h3>
     <p id="modalPrecio"></p>
 
-    <div id="tipoHoja" style="display:none">
-      <label>Tipo de hoja</label>
-      <select>
-        <option>Rayadas</option>
-        <option>Cuadriculadas</option>
-        <option>Punteadas</option>
-        <option>Lisas</option>
-      </select>
+    <div class="cantidad-box">
+      <strong>Cantidad</strong>
+      <div class="cantidad-controles">
+        <button onclick="cambiarCantidad(-1)">−</button>
+        <input type="number" id="cantidad" value="1" min="1">
+        <button onclick="cambiarCantidad(1)">+</button>
+      </div>
     </div>
-
-    <div id="tipoHojaFichero" style="display:none">
-      <label>Tipo de hoja</label>
-      <select>
-        <option>Rayadas</option>
-        <option>Punteadas</option>
-        <option>Lisas</option>
-      </select>
-    </div>
-
-    <button onclick="cerrarModal()">Agregar al carrito</button>
   </div>
 </div>
 
 <script>
-let imagenesProducto=[], indice=0;
+let imagenes=[], indice=0;
 
-function abrirModal(nombre,precio,imagenes,tipo){
-  document.getElementById('modalProducto').style.display='flex';
-  document.getElementById('modalNombre').innerText=nombre;
-  document.getElementById('modalPrecio').innerText=precio;
-  imagenesProducto=imagenes;
-  indice=0;
-  document.getElementById('modalImg').src=imagenes[0];
-  tipoHoja.style.display = tipo==='cuaderno'?'block':'none';
-  tipoHojaFichero.style.display = tipo==='fichero'?'block':'none';
+function abrirModal(nombre, precio, imgs){
+  imagenes = imgs;
+  indice = 0;
+  modalTitulo.textContent = nombre;
+  modalPrecio.textContent = precio;
+  modalImg.src = imagenes[0];
+  cantidad.value = 1;
+  modalProducto.style.display = 'flex';
 }
 
-function cambiarImagen(d){
-  indice=(indice+d+imagenesProducto.length)%imagenesProducto.length;
-  modalImg.src=imagenesProducto[indice];
-}
 function cerrarModal(){
-  modalProducto.style.display='none';
+  modalProducto.style.display = 'none';
 }
 
-/* fade */
-const imgs=document.querySelectorAll('.carousel-fade img');
+function cambiarImg(d){
+  indice = (indice + d + imagenes.length) % imagenes.length;
+  modalImg.src = imagenes[indice];
+}
+
+function cambiarCantidad(v){
+  cantidad.value = Math.max(1, parseInt(cantidad.value) + v);
+}
+
+/* carrusel */
+const imgs = document.querySelectorAll('.carousel-fade img');
 let i=0;
 setInterval(()=>{
   imgs[i].classList.remove('activo');
