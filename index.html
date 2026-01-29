@@ -199,6 +199,15 @@ footer{
 .modal h3{
   margin:15px 0 5px;
 }
+.modal{
+  overflow-y:auto;
+  padding:20px;
+}
+
+.modal-contenido{
+  max-height:90vh;
+  overflow-y:auto;
+}
 
 .precio{
   font-weight:700;
@@ -347,7 +356,7 @@ select {
   font-weight:600;
   background:#fff;
 }
-  
+
 </style>
 </head>
 
@@ -414,7 +423,6 @@ select {
       'Cuaderno A4 Floral',
       '$11.000',
       'imagenes/1cuadernoA4.jpeg',
-      true
     )">
       <img src="imagenes/1cuadernoA4.jpeg">
       <h4>Cuaderno A4 Floral</h4>
@@ -425,7 +433,6 @@ select {
       'Cuaderno A5 Floral',
       '$5.00',
       'imagenes/cuadernos1.jpg',
-      true
     )">
       <img src="imagenes/cuadernos1.jpg">
       <h4>Cuaderno A5 Floral</h4>
@@ -436,7 +443,6 @@ select {
       'Cuaderno A5 Floral',
       '$5.00',
       'imagenes/cuadernos1.jpg',
-      true
     )">
       <img src="imagenes/cuadernos1.jpg">
       <h4>Cuaderno A5 Floral</h4>
@@ -455,7 +461,6 @@ select {
       'Fichero N3 (x100 hojas)',
       '$8.000',
       'imagenes/fichero1.jpeg',
-      false
     )">
       <img src="imagenes/fichero1.jpeg">
       <h4>Fichero N3 (x100 hojas)</h4>
@@ -466,7 +471,6 @@ select {
       'Fichero N3 (x50 hojas)',
       '$7.000',
       'imagenes/fichero3.jpeg',
-      false
     )">
       <img src="imagenes/fichero3.jpeg">
       <h4>Fichero N3 (x50 hojas)</h4>
@@ -477,7 +481,6 @@ select {
       'Fichero N2 (x100 hojas)',
       '$6.500',
       'imagenes/fichero2.jpeg',
-      false
     )">
       <img src="imagenes/fichero2.jpeg">
       <h4>Fichero N2 (x100 hojas)</h4>
@@ -548,6 +551,18 @@ select {
     <option value="Cuadriculadas">Cuadriculadas</option>
     <option value="Punteadas">Punteadas</option>
     <option value="Lisas">Lisas</option>
+
+    <!-- SOLO PARA FICHEROS -->
+<div id="tipoHojaFichero" style="display:none">
+  <label for="hojaFichero"><strong>Tipo de hoja</strong></label>
+  <select id="hojaFichero">
+    <option value="">Selecciona una opción</option>
+    <option value="Rayadas">Rayadas</option>
+    <option value="Punteadas">Punteadas</option>
+    <option value="Lisas">Lisas</option>
+  </select>
+</div>
+    
   </select>
 </div>
  <div class="cantidad-box">
@@ -569,17 +584,23 @@ let carrito = 0;
 let productoActual = {};
 
 /* --- TU CÓDIGO EXISTENTE --- */
-function abrirModal(nombre, precio, imagen, esCuaderno){
-  document.getElementById('modalProducto').style.display='flex';
+function abrirModal(nombre, precio, imagen, tipo){
+  document.getElementById('modalProducto').style.display = 'flex';
   document.getElementById('modalNombre').innerText = nombre;
   document.getElementById('modalPrecio').innerText = precio;
   document.getElementById('modalImg').src = imagen;
 
-  productoActual = { nombre, precio };
+  // ocultar ambos por defecto
+  document.getElementById('tipoHoja').style.display = 'none';
+  document.getElementById('tipoHojaFichero').style.display = 'none';
 
-  document.getElementById('tipoHoja').style.display =
-    esCuaderno ? 'block' : 'none';
-}
+  if (tipo === 'cuaderno') {
+    document.getElementById('tipoHoja').style.display = 'block';
+  }
+
+  if (tipo === 'fichero') {
+    document.getElementById('tipoHojaFichero').style.display = 'block';
+  }
 
 function cerrarModal(){
   document.getElementById('modalProducto').style.display='none';
