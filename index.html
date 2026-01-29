@@ -128,6 +128,39 @@ footer{
   padding:15px;
   border-top:3px solid var(--rosa);
 }
+/* PRODUCTOS INDIVIDUALES */
+.productos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.producto{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 6px 15px rgba(0,0,0,.15);
+  text-align:center;
+}
+
+.producto img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.producto h3{
+  margin:15px 10px 5px;
+  font-size:18px;
+}
+
+.producto p{
+  font-size:14px;
+  padding:0 15px 20px;
+  color:#555;
+}
+  
 </style>
 </head>
 
@@ -179,7 +212,22 @@ footer{
 
 <section id="cuadernos" class="seccion">
   <h2>Cuadernos</h2>
-  <p>Aquí puedes mostrar modelos, tamaños y precios.</p>
+
+  <div class="productos-grid">
+
+    <div class="producto">
+      <img src="imagenes/cuadernos/cuaderno1.jpg">
+      <h3>Cuaderno A5</h3>
+      <p>Incluye 100 hojas rayadas, tapa dura y anillado metálico.</p>
+    </div>
+
+    <div class="producto">
+      <img src="imagenes/cuadernos/cuaderno2.jpg">
+      <h3>Cuaderno Universitario</h3>
+      <p>200 hojas cuadriculadas, separadores y portada laminada.</p>
+    </div>
+
+  </div>
 </section>
 
 <section id="ficheros" class="seccion">
