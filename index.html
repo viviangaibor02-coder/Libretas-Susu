@@ -12,7 +12,6 @@
   --rosa:#f7d9e3;
   --rosa2:#fdecef;
   --gris:#333;
-  --negro:#111;
 }
 
 *{
@@ -33,10 +32,7 @@ header{
   padding:20px;
   border-bottom:3px solid var(--rosa);
 }
-
-header img{
-  max-width:250px;
-}
+header img{max-width:250px;}
 
 /* NAV */
 nav{
@@ -44,7 +40,6 @@ nav{
   padding:12px;
   text-align:center;
 }
-
 nav a{
   margin:0 12px;
   font-weight:600;
@@ -52,12 +47,23 @@ nav a{
   text-decoration:none;
 }
 
+/* SECCIONES */
+.seccion{
+  padding:70px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+.seccion h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
 /* PRODUCTOS */
 #productos{
   background:#111;
   padding:60px 20px;
 }
-
 #productos h2{
   text-align:center;
   color:#fff;
@@ -65,12 +71,16 @@ nav a{
   margin-bottom:50px;
 }
 
+/* CATEGORIAS */
 .categorias{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
   max-width:1100px;
   margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
+}
+@media(max-width:768px){
+  .categorias{grid-template-columns:repeat(2,1fr);}
 }
 
 .categoria{
@@ -79,22 +89,18 @@ nav a{
   border-radius:20px;
   overflow:hidden;
   cursor:pointer;
-  box-shadow:0 8px 18px rgba(0,0,0,.4);
 }
-
 .categoria img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
-
 .categoria::after{
   content:'';
   position:absolute;
   inset:0;
   background:rgba(247,217,227,.65);
 }
-
 .categoria h3{
   position:absolute;
   inset:0;
@@ -105,56 +111,46 @@ nav a{
   color:#fff;
   font-weight:700;
   z-index:2;
-  text-shadow:0 3px 8px rgba(0,0,0,.6);
 }
 
-/* SECCIONES */
-.seccion{
-  padding:70px 20px;
-  max-width:1100px;
-  margin:auto;
+/* GRID PRODUCTOS */
+.productos-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+@media(max-width:768px){
+  .productos-grid{grid-template-columns:repeat(2,1fr);}
 }
 
-.seccion h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:20px;
-}
-
-/* FOOTER */
-footer{
-  background:#fff;
-  text-align:center;
-  padding:15px;
-  border-top:3px solid var(--rosa);
-}
-
-/* CARD PRODUCTO */
+/* CARD */
 .producto{
   background:#fff;
   border-radius:18px;
-  overflow:hidden;
   box-shadow:0 6px 15px rgba(0,0,0,.15);
   padding:15px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
   cursor:pointer;
 }
-
-.producto h4{
-  margin:8px 0 0;
-  font-size:17px;
-  text-align:left;
+.producto .img-box{
+  height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-
+.producto img{
+  max-height:100%;
+  width:100%;
+  object-fit:contain;
+}
+.producto h4{
+  margin:10px 0 4px;
+  font-size:16px;
+}
 .producto span{
   font-weight:700;
   color:#c9a24d;
-  font-size:18px;
-  text-align:left;
 }
-  
+
 /* MODAL */
 .modal{
   display:none;
@@ -165,175 +161,61 @@ footer{
   justify-content:center;
   align-items:center;
 }
-
 .modal-contenido{
   background:#fff;
   width:90%;
   max-width:500px;
   border-radius:20px;
   padding:20px;
-  position:relative;
-}
-
-.modal img{
-  width:100%;
-  border-radius:15px;
-}
-
-.cerrar{
-  position:absolute;
-  top:8px;
-  right:12px;
-  font-size:22px;
-  cursor:pointer;
-  z-index:10;
-  background:#fff;
-  border-radius:50%;
-  width:32px;
-  height:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 2px 8px rgba(0,0,0,.2);
-}
-
-.modal h3{
-  margin:15px 0 5px;
-}
-.modal{
-  overflow-y:auto;
-  padding:20px;
-}
-
-.modal-contenido{
   max-height:90vh;
   overflow-y:auto;
 }
-  .modal-galeria{
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.cerrar{
+  position:absolute;
+  top:10px;
+  right:14px;
+  cursor:pointer;
 }
-
+.modal-galeria{
+  position:relative;
+}
 .modal-galeria img{
   width:100%;
   border-radius:15px;
 }
-
 .flecha{
   position:absolute;
-  background:transparent;
-  color:#fff;
+  top:50%;
+  transform:translateY(-50%);
+  background:none;
   border:none;
-  font-size:32px;
+  font-size:30px;
   cursor:pointer;
-  padding:8px;
-  transition:transform .2s ease, opacity .2s ease;
-  opacity:0.75;
 }
+.flecha:first-child{left:10px;}
+.flecha:last-child{right:10px;}
 
-.flecha:hover{
-  transform:scale(1.15);
-  opacity:1;
-}
-
-/* POSICIÓN */
-.flecha:first-of-type{
-  left:8px;
-}
-
-.flecha:last-of-type{
-  right:8px;
-}
-.precio{
-  font-weight:700;
-  color:#c9a24d;
-  font-size:20px;
-}
-
-select, input{
-  width:100%;
-  padding:8px;
-  margin:10px 0;
-}
-
-button{
-  width:100%;
-  background:#f7d9e3;
-  border:none;
-  padding:10px;
-  font-weight:600;
-  cursor:pointer;
-  border-radius:10px;
-}
-
- .producto img{
-  width:100%;
-  height:auto;
-  max-height:220px;
-  object-fit:contain;
-  border-radius:12px;
-}
-  
-select {
+button, select{
   width:100%;
   padding:10px;
+  margin-top:10px;
   border-radius:10px;
   border:1px solid #ddd;
-  font-size:14px;
-  background:#fff;
 }
-
-  html{
-  scroll-behavior:smooth;
+button{
+  background:var(--rosa);
+  font-weight:600;
+  cursor:pointer;
 }
 
 /* CARRUSEL INICIO */
-.slider{
-  width:100%;
-  overflow:hidden;
-  margin-top:40px;
-}
-
-.slider-track{
-  display:flex;
-  width:calc(260px * 8);
-  animation: scroll 35s linear infinite;
-}
-
-.slider-track img{
-  width:260px;
-  height:180px;
-  object-fit:cover;
-  border-radius:14px;
-  margin-right:20px;
-}
-
-@keyframes scroll{
-  0%{
-    transform:translateX(0);
-  }
-  100%{
-    transform:translateX(-50%);
-  }
-}
-
-/* pausa elegante */
-.slider:hover .slider-track{
-  animation-play-state:paused;
-}
-
-/* CARRUSEL FADE SUAVE */
 .carousel-fade{
-  position:relative;
   max-width:900px;
   height:240px;
-  margin:30px auto 0;
+  margin:30px auto;
+  position:relative;
   overflow:hidden;
-  border-radius:18px;
 }
-
 .carousel-fade img{
   position:absolute;
   inset:0;
@@ -343,133 +225,22 @@ select {
   opacity:0;
   transition:opacity 1.8s ease-in-out;
 }
+.carousel-fade img.activo{opacity:1;}
+@media(max-width:768px){.carousel-fade{display:none;}}
 
-.carousel-fade img.activo{
-  opacity:1;
-}
-  
-
-/* OCULTAR EN CELULAR (opcional, recomendado) */
-@media(max-width:768px){
-  .carousel-fade{
-    display:none;
-  }
-}
-
-/* SELECTOR DE CANTIDAD ELEGANTE */
-.cantidad-box{
-  margin:15px 0;
-}
-
-.cantidad-label{
-  display:block;
-  margin-bottom:6px;
-  font-size:14px;
-}
-
-.cantidad-control{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border:1px solid #ddd;
-  border-radius:12px;
-  overflow:hidden;
-  width:100%;
-}
-
-.cantidad-control button{
-  width:40px;
-  height:40px;
-  border:none;
-  background:#f7d9e3;
-  font-size:20px;
-  font-weight:600;
-  cursor:pointer;
-}
-
-.cantidad-control input{
-  width:100%;
+footer{
+  background:#fff;
   text-align:center;
-  border:none;
-  font-size:16px;
-  font-weight:600;
-  background:#fff;
+  padding:15px;
+  border-top:3px solid var(--rosa);
 }
-
-/* PRODUCTOS - PC */
-.productos-grid{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:20px;
-}
-
-/* PRODUCTOS - CELULAR */
-@media(max-width:768px){
-  .productos-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-@media(max-width:768px){
-
-  .producto{
-    padding:14px;
-    min-height:260px;
-  }
-
-  .producto h4{
-    font-size:15px;
-    text-align:center;
-    line-height:1.3;
-    margin-top:8px;
-  }
-
-  .producto span{
-    font-size:16px;
-    text-align:center;
-  }
-}
-  
-/* NUESTROS PRODUCTOS - PC */
-.categorias{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:20px;
-}
-
-/* NUESTROS PRODUCTOS - CELULAR */
-@media(max-width:768px){
-  .categorias{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-/* CONTENEDOR DE IMAGEN DEL PRODUCTO */
-.producto .img-box{
-  width:100%;
-  height:180px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-/* IMAGEN */
-.producto .img-box img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-  
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="imagenes/logo.jpeg" alt="SUSU">
+  <img src="imagenes/logo.jpeg">
 </header>
 
 <nav>
@@ -477,404 +248,116 @@ select {
   <a href="#productos">Productos</a>
   <a href="#contacto">Contacto</a>
 </nav>
+
 <section id="inicio" class="seccion">
   <h2>Bienvenidos a SUSU</h2>
-  <p style="text-align:center; max-width:700px; margin:auto;">
-    En SUSU creamos cuadernos, agendas y papelería con diseños únicos,
-    delicados y funcionales. Cada producto está pensado para acompañarte
-    en tu día a día con estilo y calidad.
+  <p style="text-align:center;max-width:700px;margin:auto;">
+    Papelería delicada, funcional y con amor ✨
   </p>
 
   <div class="carousel-fade">
-  <img src="imagenes/2-1cuadernoA4.jpeg" class="activo">
-  <img src="imagenes/fichero1.jpeg">
-  <img src="imagenes/3cuadernoA4.jpeg">
-</div>
+    <img src="imagenes/1cuadernoA4.jpeg" class="activo">
+    <img src="imagenes/1cuadernoA4-dentro.jpeg">
+    <img src="imagenes/1cuadernoA4-hojas.jpeg">
+  </div>
 </section>
-  
+
 <section id="productos">
   <h2>Nuestros productos</h2>
 
   <div class="categorias">
-
-    <a href="#cuadernos" class="categoria">
-      <div class="img-box">
-  <img src="imagenes/1cuadernoA4.jpeg">
-</div>
-      <h3>Cuadernos</h3>
-    </a>
-
-    <a href="#ficheros" class="categoria">
-      <div class="img-box">
-  <img src="imagenes/1cuadernoA4.jpeg">
-</div>
-      <h3>Ficheros</h3>
-    </a>
-
-    <a href="#agendas" class="categoria">
-     <div class="img-box">
-  <img src="imagenes/1cuadernoA4.jpeg">
-</div>
-      <h3>Agendas</h3>
-    </a>
-
-       <a href="#repuestos" class="categoria">
-      <div class="img-box">
-  <img src="imagenes/1cuadernoA4.jpeg">
-</div>
-      <h3>Repuestos</h3>
-    </a>
-
+    <a href="#cuadernos" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Cuadernos</h3></a>
+    <a href="#ficheros" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Ficheros</h3></a>
+    <a href="#agendas" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Agendas</h3></a>
+    <a href="#repuestos" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Repuestos</h3></a>
   </div>
 </section>
 
+<!-- SECCIONES DE PRODUCTOS YA LIMPIAS -->
+<!-- Ejemplo cuadernos -->
 <section id="cuadernos" class="seccion">
   <h2>Cuadernos</h2>
-
   <div class="productos-grid">
-
-    <div class="producto" onclick="abrirModal(
-      'Cuaderno A4 Floral',
-      '$11.000',
-      [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4.jpeg'
-  ],
-      'cuaderno'
-    )">
-    <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-    <div class="producto" onclick="abrirModal(
-      'Cuaderno A5 Floral',
-      '$5.00',
-       [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4.jpeg'
-  ],
-      'cuaderno'
-    )">
-      <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-    <div class="producto" onclick="abrirModal(
-      'Cuaderno A5 Floral',
-      '$5.00',
-       [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4-dentro.jpeg',
-    'imagenes/1cuadernoA4-hojas.jpeg'
-  ],
-      'cuaderno'
-    )">
-    <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-  </div>
-</section>
-
-<section id="ficheros" class="seccion">
-  <h2>Ficheros N3</h2>
-
-  <div class="productos-grid">
-
-    <div class="producto" onclick="abrirModal(
-      'Fichero N3 (x100 hojas)',
-      '$8.000',
- [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4-dentro.jpeg',
-    'imagenes/1cuadernoA4-hojas.jpeg'
-  ],
-      'fichero'
-    )">
-      <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-    <div class="producto" onclick="abrirModal(
-      'Fichero N3 (x50 hojas)',
-      '$7.000',
-       [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4-dentro.jpeg',
-    'imagenes/1cuadernoA4-hojas.jpeg'
-  ],
-      'fichero'
-    )">
-     <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-    <div class="producto" onclick="abrirModal(
-      'Fichero N2 (x100 hojas)',
-      '$6.500',
-       [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4-dentro.jpeg',
-    'imagenes/1cuadernoA4-hojas.jpeg'
-  ],
-      'fichero'
-    )">
-   <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-  </div>
-</section>
-  
-<section id="agendas" class="seccion">
-  <h2>Agendas 2026</h2>
-
-  <div class="productos-grid">
-
-    <div class="producto" onclick="abrirModal(
-      'Agenda Anual colores pasteles',
-      '$14.000',
-       [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4-dentro.jpeg',
-    'imagenes/1cuadernoA4-hojas.jpeg'
-  ],
-       null
-    )">
-     <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-    <div class="producto" onclick="abrirModal(
-      'Agenda de estudio Diseño Stitch',
-      '$14.000',
-      [
-    'imagenes/1cuadernoA4.jpeg',
-    'imagenes/1cuadernoA4-dentro.jpeg',
-    'imagenes/1cuadernoA4-hojas.jpeg'
-  ],
-       null
-    )">
-     <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-  </div>
-</section>
-
-<section id="repuestos" class="seccion">
-  <h2>Repuestos</h2>
-
-  <div class="productos-grid">
-
-    <div class="producto" onclick="abrirModal(
-      'Repuesto A4',
-      '$4.000',
-      ['imagenes/repuestoA4.jpeg'],
-      'cuaderno'
-    )">
-     <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-    <div class="producto" onclick="abrirModal(
-      'Repuesto A5',
-      '$3.000',
-      ['imagenes/repuestoA5.jpeg'],
-      'cuaderno'
-    )">
-     <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-    <div class="producto" onclick="abrirModal(
-      'Repuesto Fichero N3',
-      '$3.500',
-      ['imagenes/repuestoN3.jpeg'],
-      'fichero'
-    )">
-      <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
-    <div class="producto" onclick="abrirModal(
-      'Repuesto Fichero N2',
-      '$3.000',
-      ['imagenes/repuestoN2.jpeg'],
-      'fichero'
-    )">
-    <div class="producto">
-  <div class="img-box">
-    <img src="imagenes/1cuadernoA4.jpeg">
-  </div>
-  <h4>Cuaderno A4 Floral</h4>
-  <span>$11.000</span>
-</div>
-
+    <div class="producto" onclick="abrirModal('Cuaderno A4 Floral','$11.000',['imagenes/1cuadernoA4.jpeg','imagenes/1cuadernoA4-dentro.jpeg'],'cuaderno')">
+      <div class="img-box"><img src="imagenes/1cuadernoA4.jpeg"></div>
+      <h4>Cuaderno A4 Floral</h4>
+      <span>$11.000</span>
+    </div>
   </div>
 </section>
 
 <section id="contacto" class="seccion">
   <h2>Contacto</h2>
-  <p>WhatsApp, Instagram o redes.</p>
+  <p>WhatsApp · Instagram · Redes</p>
 </section>
 
-<footer>
-© 2026 SUSU
-</footer>
+<footer>© 2026 SUSU</footer>
 
-  <div class="modal" id="modalProducto">
+<div class="modal" id="modalProducto">
   <div class="modal-contenido">
     <span class="cerrar" onclick="cerrarModal()">✖</span>
+    <div class="modal-galeria">
+      <button class="flecha" onclick="cambiarImagen(-1)">❮</button>
+      <img id="modalImg">
+      <button class="flecha" onclick="cambiarImagen(1)">❯</button>
+    </div>
+    <h3 id="modalNombre"></h3>
+    <p id="modalPrecio"></p>
 
-  <div class="modal-galeria">
-  <button class="flecha" onclick="cambiarImagen(-1)">❮</button>
-  <img id="modalImg">
-  <button class="flecha" onclick="cambiarImagen(1)">❯</button>
-</div>
+    <div id="tipoHoja" style="display:none">
+      <label>Tipo de hoja</label>
+      <select>
+        <option>Rayadas</option>
+        <option>Cuadriculadas</option>
+        <option>Punteadas</option>
+        <option>Lisas</option>
+      </select>
+    </div>
 
-<h3 id="modalNombre"></h3>
-<p class="precio" id="modalPrecio"></p>
+    <div id="tipoHojaFichero" style="display:none">
+      <label>Tipo de hoja</label>
+      <select>
+        <option>Rayadas</option>
+        <option>Punteadas</option>
+        <option>Lisas</option>
+      </select>
+    </div>
 
-   <!-- SOLO PARA CUADERNOS -->
-<div id="tipoHoja" style="display:none">
-  <label><strong>Tipo de hoja</strong></label>
-  <select>
-    <option>Rayadas</option>
-    <option>Cuadriculadas</option>
-    <option>Punteadas</option>
-    <option>Lisas</option>
-  </select>
-</div>
-
-<!-- SOLO PARA FICHEROS -->
-<div id="tipoHojaFichero" style="display:none">
-  <label><strong>Tipo de hoja</strong></label>
-  <select>
-    <option>Rayadas</option>
-    <option>Punteadas</option>
-    <option>Lisas</option>
-  </select>
-</div>
- <div class="cantidad-box">
-  <span class="cantidad-label"><strong>Cantidad</strong></span>
-
-  <div class="cantidad-control">
-    <button type="button" onclick="cambiarCantidad(-1)">−</button>
-    <input type="text" id="cantidad" value="1" readonly>
-    <button type="button" onclick="cambiarCantidad(1)">+</button>
-  </div>
-</div>
-    
-    <button onclick="agregarCarrito()">Agregar al carrito</button>
+    <button onclick="cerrarModal()">Agregar al carrito</button>
   </div>
 </div>
 
 <script>
-let carrito = 0;
-let imagenesProducto = [];
-let indiceImagen = 0;
+let imagenesProducto=[], indice=0;
 
-function abrirModal(nombre, precio, imagenes, tipo){
-  document.getElementById('modalProducto').style.display = 'flex';
-  document.getElementById('modalNombre').innerText = nombre;
-  document.getElementById('modalPrecio').innerText = precio;
-
-  imagenesProducto = imagenes;
-  indiceImagen = 0;
-  document.getElementById('modalImg').src = imagenesProducto[0];
-
-  document.getElementById('tipoHoja').style.display = 'none';
-  document.getElementById('tipoHojaFichero').style.display = 'none';
-
-  if(tipo === 'cuaderno'){
-    document.getElementById('tipoHoja').style.display = 'block';
-  }
-  if(tipo === 'fichero'){
-    document.getElementById('tipoHojaFichero').style.display = 'block';
-  }
+function abrirModal(nombre,precio,imagenes,tipo){
+  document.getElementById('modalProducto').style.display='flex';
+  document.getElementById('modalNombre').innerText=nombre;
+  document.getElementById('modalPrecio').innerText=precio;
+  imagenesProducto=imagenes;
+  indice=0;
+  document.getElementById('modalImg').src=imagenes[0];
+  tipoHoja.style.display = tipo==='cuaderno'?'block':'none';
+  tipoHojaFichero.style.display = tipo==='fichero'?'block':'none';
 }
 
-function cambiarImagen(direccion){
-  indiceImagen += direccion;
-  if(indiceImagen < 0) indiceImagen = imagenesProducto.length - 1;
-  if(indiceImagen >= imagenesProducto.length) indiceImagen = 0;
-  document.getElementById('modalImg').src = imagenesProducto[indiceImagen];
+function cambiarImagen(d){
+  indice=(indice+d+imagenesProducto.length)%imagenesProducto.length;
+  modalImg.src=imagenesProducto[indice];
 }
-
-/* CERRAR MODAL */
 function cerrarModal(){
-  document.getElementById('modalProducto').style.display = 'none';
+  modalProducto.style.display='none';
 }
 
-/* CARRITO */
-function agregarCarrito(){
-  alert("Producto agregado al carrito 🛒");
-  cerrarModal();
-}
-
-/* CANTIDAD */
-let cantidadActual = 1;
-function cambiarCantidad(valor){
-  cantidadActual += valor;
-  if(cantidadActual < 1) cantidadActual = 1;
-  document.getElementById("cantidad").value = cantidadActual;
-}
-
-/* CARRUSEL FADE */
-const imagenes = document.querySelectorAll('.carousel-fade img');
-let index = 0;
-
-setInterval(() => {
-  imagenes[index].classList.remove('activo');
-  index = (index + 1) % imagenes.length;
-  imagenes[index].classList.add('activo');
-}, 4000);
+/* fade */
+const imgs=document.querySelectorAll('.carousel-fade img');
+let i=0;
+setInterval(()=>{
+  imgs[i].classList.remove('activo');
+  i=(i+1)%imgs.length;
+  imgs[i].classList.add('activo');
+},4000);
 </script>
-  
+
 </body>
 </html>
