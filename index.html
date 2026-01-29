@@ -189,6 +189,7 @@ nav a{
   right:14px;
   font-size:22px;
   cursor:pointer;
+  z-index:10;
 }
 .modal-img{
   width:100%;
@@ -210,6 +211,7 @@ nav a{
   align-items:center;
   font-size:22px;
   cursor:pointer;
+  z-index:10;
 }
 .flecha.izq{left:10px;}
 .flecha.der{right:10px;}
@@ -229,6 +231,21 @@ nav a{
 .cantidad-controles input{
   width:60px;
   text-align:center;
+}
+
+/* MEJORAS MOVIL */
+@media(max-width:768px){
+  .producto h4{
+    font-size:14px;
+    line-height:1.3;
+  }
+  .producto span{
+    display:block;
+    margin-top:4px;
+  }
+  .producto .img-box{
+    height:170px;
+  }
 }
 
 footer{
@@ -296,14 +313,6 @@ footer{
   </div>
 </section>
 
-<section id="agendas" class="seccion">
-  <h2>Agendas</h2>
-</section>
-
-<section id="repuestos" class="seccion">
-  <h2>Repuestos</h2>
-</section>
-
 <section id="contacto" class="seccion">
   <h2>Contacto</h2>
   <p>WhatsApp · Instagram</p>
@@ -334,20 +343,27 @@ footer{
 </div>
 
 <script>
-let imagenes=[], indice=0;
+let imagenes = [];
+let indice = 0;
+
+const modal = document.getElementById('modalProducto');
+const modalTitulo = document.getElementById('modalTitulo');
+const modalPrecio = document.getElementById('modalPrecio');
+const modalImg = document.getElementById('modalImg');
+const cantidad = document.getElementById('cantidad');
 
 function abrirModal(nombre, precio, imgs){
   imagenes = imgs;
   indice = 0;
   modalTitulo.textContent = nombre;
   modalPrecio.textContent = precio;
-  modalImg.src = imagenes[0];
+  modalImg.src = imagenes[indice];
   cantidad.value = 1;
-  modalProducto.style.display = 'flex';
+  modal.style.display = 'flex';
 }
 
 function cerrarModal(){
-  modalProducto.style.display = 'none';
+  modal.style.display = 'none';
 }
 
 function cambiarImg(d){
@@ -359,12 +375,22 @@ function cambiarCantidad(v){
   cantidad.value = Math.max(1, parseInt(cantidad.value) + v);
 }
 
+/* cerrar fondo */
+modal.addEventListener('click', e=>{
+  if(e.target === modal) cerrarModal();
+});
+
+/* cerrar ESC */
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape') cerrarModal();
+});
+
 /* carrusel */
 const imgs = document.querySelectorAll('.carousel-fade img');
-let i=0;
+let i = 0;
 setInterval(()=>{
   imgs[i].classList.remove('activo');
-  i=(i+1)%imgs.length;
+  i = (i + 1) % imgs.length;
   imgs[i].classList.add('activo');
 },4000);
 </script>
