@@ -404,7 +404,20 @@ select {
     grid-template-columns:repeat(2, 1fr);
   }
 }
-  
+
+/* NUESTROS PRODUCTOS - PC */
+.categorias{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
+
+/* NUESTROS PRODUCTOS - CELULAR */
+@media(max-width:768px){
+  .categorias{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
 </style>
 </head>
 
