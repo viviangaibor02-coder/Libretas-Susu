@@ -162,6 +162,75 @@
       #inicio h3{font-size:26px;}
       .script{font-size:32px;}
     }
+
+    /* ===== CATEGORÍAS PRODUCTOS ===== */
+.categorias{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+}
+
+.categoria-card{
+  position:relative;
+  height:260px;
+  border-radius:22px;
+  overflow:hidden;
+  text-decoration:none;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  box-shadow:0 6px 14px rgba(0,0,0,0.15);
+  transition:all .35s ease;
+}
+
+/* IMÁGENES DE FONDO */
+.categoria-card:nth-child(1){
+  background:url("cuaderno.jpg") center/cover no-repeat;
+}
+.categoria-card:nth-child(2){
+  background:url("agenda.jpg") center/cover no-repeat;
+}
+.categoria-card:nth-child(3){
+  background:url("fichero.jpg") center/cover no-repeat;
+}
+.categoria-card:nth-child(4){
+  background:url("repuestos.jpg") center/cover no-repeat;
+}
+
+/* OVERLAY */
+.categoria-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,0.05),
+    rgba(247,217,227,0.85)
+  );
+}
+
+/* TEXTO */
+.categoria-card span{
+  position:relative;
+  margin-bottom:20px;
+  font-size:22px;
+  font-weight:700;
+  color:#444;
+  background:#fff;
+  padding:10px 22px;
+  border-radius:25px;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+/* HOVER */
+.categoria-card:hover{
+  transform:translateY(-6px);
+}
+.categoria-card:hover span{
+  background:linear-gradient(135deg,var(--dorado),var(--rosa));
+  color:#fff;
+}
+    
   </style>
 </head>
 
