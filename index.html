@@ -307,6 +307,46 @@ select {
     display:none;
   }
 }
+
+/* SELECTOR DE CANTIDAD ELEGANTE */
+.cantidad-box{
+  margin:15px 0;
+}
+
+.cantidad-label{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+.cantidad-control{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid #ddd;
+  border-radius:12px;
+  overflow:hidden;
+  width:100%;
+}
+
+.cantidad-control button{
+  width:40px;
+  height:40px;
+  border:none;
+  background:#f7d9e3;
+  font-size:20px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.cantidad-control input{
+  width:100%;
+  text-align:center;
+  border:none;
+  font-size:16px;
+  font-weight:600;
+  background:#fff;
+}
   
 </style>
 </head>
@@ -463,10 +503,14 @@ select {
     <option value="Lisas">Lisas</option>
   </select>
 </div>
-   <div class="cantidad-box">
-  <button onclick="cambiarCantidad(-1)">-</button>
-  <span id="cantidad">1</span>
-  <button onclick="cambiarCantidad(1)">+</button>
+ <div class="cantidad-box">
+  <span class="cantidad-label"><strong>Cantidad</strong></span>
+
+  <div class="cantidad-control">
+    <button type="button" onclick="cambiarCantidad(-1)">−</button>
+    <input type="text" id="cantidad" value="1" readonly>
+    <button type="button" onclick="cambiarCantidad(1)">+</button>
+  </div>
 </div>
     
     <button onclick="agregarCarrito()">Agregar al carrito</button>
@@ -514,7 +558,7 @@ function seleccionarHoja(btn){
 function cambiarCantidad(valor){
   cantidadActual += valor;
   if(cantidadActual < 1) cantidadActual = 1;
-  document.getElementById("cantidad").innerText = cantidadActual;
+  document.getElementById("cantidad").value = cantidadActual;
 }
 
 /* --- CARRUSEL FADE SUAVE --- */
