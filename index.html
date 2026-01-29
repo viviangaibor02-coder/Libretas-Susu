@@ -1,399 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuadernos SUSU</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuadernos SUSU</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- FUENTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --rosa:#f7d9e3;
-  --rosa2:#fdecef;
-  --gris:#333;
-}
+  <style>
+    :root{
+      --rosa:#f7d9e3;
+      --rosa2:#fdecef;
+      --dorado:#c9a24d;
+      --gris:#333;
+    }
 
-*{
-  box-sizing:border-box;
-  font-family:'Poppins', sans-serif;
-}
+    *{
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
 
-body{
-  margin:0;
-  background:var(--rosa2);
-  color:var(--gris);
-}
+    body{
+      margin:0;
+      background:var(--rosa2);
+      color:var(--gris);
+    }
 
-/* HEADER */
-header{
-  background:#fff;
-  text-align:center;
-  padding:20px;
-  border-bottom:3px solid var(--rosa);
-}
-header img{max-width:250px;}
+    /* ===== HEADER ===== */
+    header{
+      background:#fff;
+      text-align:center;
+      padding:20px;
+      border-bottom:3px solid var(--rosa);
+    }
 
-/* NAV */
-nav{
-  background:var(--rosa);
-  padding:12px;
-  text-align:center;
-}
-nav a{
-  margin:0 12px;
-  font-weight:600;
-  color:#444;
-  text-decoration:none;
-}
+    header img{
+      max-width:230px;
+    }
 
-/* SECCIONES */
-.seccion{
-  padding:70px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-.seccion h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:20px;
-}
+    /* ===== NAV ===== */
+    nav{
+      background:var(--rosa);
+      padding:12px;
+      text-align:center;
+    }
 
-/* CARRUSEL */
-.carousel-fade{
-  max-width:900px;
-  height:240px;
-  margin:30px auto;
-  position:relative;
-  overflow:hidden;
-}
-.carousel-fade img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 1.5s;
-}
-.carousel-fade img.activo{opacity:1;}
-@media(max-width:768px){
-  .carousel-fade{display:none;}
-}
+    nav a{
+      margin:0 12px;
+      font-weight:600;
+      text-decoration:none;
+      color:#444;
+    }
 
-/* PRODUCTOS */
-#productos{
-  background:#111;
-  padding:60px 20px;
-}
-#productos h2{
-  color:#fff;
-  font-size:38px;
-  margin-bottom:40px;
-}
+    /* ===== SECCIONES ===== */
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px;
+    }
 
-/* CATEGORIAS */
-.categorias{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-@media(max-width:768px){
-  .categorias{grid-template-columns:repeat(2,1fr);}
-}
+    /* ===== INICIO ===== */
+    #inicio{
+      text-align:center;
+      background:linear-gradient(180deg,#fff,var(--rosa2));
+      border-radius:25px;
+      padding:55px 30px;
+    }
 
-.categoria{
-  position:relative;
-  height:220px;
-  border-radius:20px;
-  overflow:hidden;
-}
-.categoria img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.categoria::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(247,217,227,.65);
-}
-.categoria h3{
-  position:absolute;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#fff;
-  font-size:26px;
-  z-index:2;
-}
+    #inicio h3{
+      font-size:34px;
+      font-weight:700;
+    }
 
-/* GRID PRODUCTOS */
-.productos-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-@media(max-width:768px){
-  .productos-grid{grid-template-columns:repeat(2,1fr);}
-}
+    .script{
+      font-family:'Dancing Script', cursive;
+      font-size:40px;
+      color:#d89aa9;
+      display:block;
+      margin:10px 0;
+    }
 
-/* CARD */
-.producto{
-  background:#fff;
-  border-radius:18px;
-  padding:15px;
-  cursor:pointer;
-}
-.producto .img-box{
-  height:200px;
-  overflow:hidden;
-}
-.producto img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-.producto h4{
-  margin:10px 0 4px;
-  font-size:15px;
-}
-.producto span{
-  font-weight:700;
-  color:#c9a24d;
-}
+    #inicio p{
+      max-width:750px;
+      margin:20px auto 0;
+      line-height:1.7;
+      color:#555;
+    }
 
-/* MODAL */
-#modalProducto{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-.modal-contenido{
-  background:#fff;
-  width:90%;
-  max-width:420px;
-  padding:20px;
-  border-radius:18px;
-  position:relative;
-}
-.cerrar{
-  position:absolute;
-  top:10px;
-  right:14px;
-  font-size:22px;
-  cursor:pointer;
-  z-index:10;
-}
-.modal-img{
-  width:100%;
-  height:260px;
-  object-fit:contain;
-}
+    /* ===== TÍTULOS ===== */
+    .titulo-seccion{
+      text-align:center;
+      margin-bottom:35px;
+    }
 
-/* FLECHAS */
-.flecha{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(255,255,255,.7);
-  border-radius:50%;
-  width:40px;
-  height:40px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:22px;
-  cursor:pointer;
-  z-index:10;
-}
-.flecha.izq{left:10px;}
-.flecha.der{right:10px;}
+    .titulo-seccion h3{
+      font-size:32px;
+      font-weight:700;
+      margin:0;
+    }
 
-/* CANTIDAD */
-.cantidad-box{margin-top:15px;}
-.cantidad-controles{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-.cantidad-controles button{
-  width:38px;
-  height:38px;
-  font-size:18px;
-}
-.cantidad-controles input{
-  width:60px;
-  text-align:center;
-}
+    /* ===== PRODUCTOS ===== */
+    .productos{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:22px;
+    }
 
-/* MEJORAS MOVIL */
-@media(max-width:768px){
-  .producto h4{
-    font-size:14px;
-    line-height:1.3;
-  }
-  .producto span{
-    display:block;
-    margin-top:4px;
-  }
-  .producto .img-box{
-    height:170px;
-  }
-}
+    .card{
+      background:#fff;
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+      text-align:center;
+    }
 
-footer{
-  background:#fff;
-  text-align:center;
-  padding:15px;
-}
-</style>
+    .card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:12px;
+    }
+
+    .precio{
+      color:var(--dorado);
+      font-weight:700;
+      font-size:18px;
+      margin:10px 0;
+    }
+
+    /* ===== BOTONES ===== */
+    .btn{
+      background:linear-gradient(135deg,var(--rosa),var(--rosa2));
+      border:none;
+      padding:10px 20px;
+      border-radius:25px;
+      font-weight:600;
+      cursor:pointer;
+      color:#444;
+      box-shadow:0 4px 8px rgba(0,0,0,.12);
+      transition:all .3s ease;
+    }
+
+    .btn:hover{
+      background:linear-gradient(135deg,var(--dorado),var(--rosa));
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      background:#fff;
+      text-align:center;
+      padding:15px;
+      border-top:3px solid var(--rosa);
+      margin-top:40px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media(max-width:600px){
+      #inicio h3{font-size:26px;}
+      .script{font-size:32px;}
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <img src="imagenes/logo.jpeg">
+  <img src="logo-cuadernos.jpeg" alt="Cuadernos SUSU">
 </header>
 
 <nav>
   <a href="#inicio">Inicio</a>
-  <a href="#productos">Productos</a>
+  <a href="#cuadernos">Cuadernos</a>
+  <a href="#agendas">Agendas</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
-<section id="inicio" class="seccion">
-  <h2>Bienvenidos a SUSU</h2>
-  <p style="text-align:center;">Papelería delicada, funcional y con amor ✨</p>
+<section id="inicio">
+  <h3>
+    Papelería creativa
+    <span class="script">que organiza tu mundo</span>
+  </h3>
 
-  <div class="carousel-fade">
-    <img src="imagenes/1cuadernoA4.jpeg" class="activo">
-    <img src="imagenes/1cuadernoA4-dentro.jpeg">
-  </div>
+  <p>
+    En <strong>Cuadernos SUSU</strong> creamos cuadernos, agendas y ficheros
+    con <strong>sistema de discos</strong>, pensados para acompañarte
+    en tu día a día con estilo, orden y personalidad.
+  </p>
 </section>
 
-<section id="productos">
-  <h2>Nuestros productos</h2>
-
-  <div class="categorias">
-    <a href="#cuadernos" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Cuadernos</h3></a>
-    <a href="#ficheros" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Ficheros</h3></a>
-    <a href="#agendas" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Agendas</h3></a>
-    <a href="#repuestos" class="categoria"><img src="imagenes/1cuadernoA4.jpeg"><h3>Repuestos</h3></a>
+<section id="cuadernos">
+  <div class="titulo-seccion">
+    <h3>Cuadernos <span class="script">personalizables</span></h3>
   </div>
-</section>
 
-<section id="cuadernos" class="seccion">
-  <h2>Cuadernos</h2>
-  <div class="productos-grid">
-    <div class="producto"
-      onclick="abrirModal('Cuaderno A4 Floral','$11.000',['imagenes/1cuadernoA4.jpeg','imagenes/1cuadernoA4-dentro.jpeg'])">
-      <div class="img-box"><img src="imagenes/1cuadernoA4.jpeg"></div>
-      <h4>Cuaderno A4 Floral</h4>
-      <span>$11.000</span>
+  <div class="productos">
+    <div class="card">
+      <img src="ejemplo.jpg" alt="Cuaderno">
+      <h4>Cuaderno A5</h4>
+      <p>Discos + tapas rígidas</p>
+      <p class="precio">$00.000</p>
+      <button class="btn">Ver detalles</button>
     </div>
   </div>
 </section>
 
-<section id="ficheros" class="seccion">
-  <h2>Ficheros</h2>
-  <div class="productos-grid">
-    <div class="producto"
-      onclick="abrirModal('Fichero Floral','$9.500',['imagenes/1cuadernoA4.jpeg'])">
-      <div class="img-box"><img src="imagenes/1cuadernoA4.jpeg"></div>
-      <h4>Fichero Floral</h4>
-      <span>$9.500</span>
-    </div>
-  </div>
-</section>
-
-<section id="contacto" class="seccion">
-  <h2>Contacto</h2>
-  <p>WhatsApp · Instagram</p>
-</section>
-
-<footer>© 2026 SUSU</footer>
-
-<!-- MODAL -->
-<div id="modalProducto">
-  <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarModal()">✕</span>
-    <div class="flecha izq" onclick="cambiarImg(-1)">‹</div>
-    <img id="modalImg" class="modal-img">
-    <div class="flecha der" onclick="cambiarImg(1)">›</div>
-
-    <h3 id="modalTitulo"></h3>
-    <p id="modalPrecio"></p>
-
-    <div class="cantidad-box">
-      <strong>Cantidad</strong>
-      <div class="cantidad-controles">
-        <button onclick="cambiarCantidad(-1)">−</button>
-        <input type="number" id="cantidad" value="1" min="1">
-        <button onclick="cambiarCantidad(1)">+</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-let imagenes = [];
-let indice = 0;
-
-const modal = document.getElementById('modalProducto');
-const modalTitulo = document.getElementById('modalTitulo');
-const modalPrecio = document.getElementById('modalPrecio');
-const modalImg = document.getElementById('modalImg');
-const cantidad = document.getElementById('cantidad');
-
-function abrirModal(nombre, precio, imgs){
-  imagenes = imgs;
-  indice = 0;
-  modalTitulo.textContent = nombre;
-  modalPrecio.textContent = precio;
-  modalImg.src = imagenes[indice];
-  cantidad.value = 1;
-  modal.style.display = 'flex';
-}
-
-function cerrarModal(){
-  modal.style.display = 'none';
-}
-
-function cambiarImg(d){
-  indice = (indice + d + imagenes.length) % imagenes.length;
-  modalImg.src = imagenes[indice];
-}
-
-function cambiarCantidad(v){
-  cantidad.value = Math.max(1, parseInt(cantidad.value) + v);
-}
-
-/* cerrar fondo */
-modal.addEventListener('click', e=>{
-  if(e.target === modal) cerrarModal();
-});
-
-/* cerrar ESC */
-document.addEventListener('keydown', e=>{
-  if(e.key === 'Escape') cerrarModal();
-});
-
-/* carrusel */
-const imgs = document.querySelectorAll('.carousel-fade img');
-let i = 0;
-setInterval(()=>{
-  imgs[i].classList.remove('activo');
-  i = (i + 1) % imgs.length;
-  imgs[i].classList.add('activo');
-},4000);
-</script>
+<footer>
+  © 2026 Cuadernos SUSU
+</footer>
 
 </body>
 </html>
