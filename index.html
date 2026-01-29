@@ -275,6 +275,37 @@ select {
 .slider:hover .slider-track{
   animation-play-state:paused;
 }
+
+  /* CARRUSEL FADE SUAVE */
+.carousel-fade{
+  position:relative;
+  max-width:900px;
+  height:350px;
+  margin:40px auto 0;
+  overflow:hidden;
+  border-radius:20px;
+}
+
+.carousel-fade img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.8s ease-in-out;
+}
+
+.carousel-fade img.activo{
+  opacity:1;
+}
+
+/* OCULTAR EN CELULAR (opcional, recomendado) */
+@media(max-width:768px){
+  .carousel-fade{
+    display:none;
+  }
+}
   
 </style>
 </head>
@@ -298,22 +329,11 @@ select {
     en tu día a día con estilo y calidad.
   </p>
 
-  <!-- CARRUSEL DE IMÁGENES -->
-  <div class="slider">
-    <div class="slider-track">
-      <img src="imagenes/cuadernos1.jpg">
-      <img src="imagenes/fichero1.jpeg">
-      <img src="imagenes/3cuadernoA4.jpeg">
-      <img src="imagenes/2-1cuadernoA4.jpeg">
-
-      <!-- duplicadas para movimiento continuo -->
-      <img src="imagenes/cuadernos1.jpg">
-      <img src="imagenes/fichero1.jpeg">
-      <img src="imagenes/3cuadernoA4.jpeg">
-      <img src="imagenes/2-1cuadernoA4.jpeg">
-    </div>
-  </div>
-  
+  <div class="carousel-fade">
+  <img src="imagenes/2-1cuadernoA4.jpeg" class="activo">
+  <img src="imagenes/fichero1.jpeg">
+  <img src="imagenes/3cuadernoA4.jpeg">
+</div>
 </section>
   
 <section id="productos">
