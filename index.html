@@ -21,6 +21,10 @@
       font-family:'Poppins', sans-serif;
     }
 
+    html{
+  scroll-behavior: smooth;
+}
+    
     body{
       margin:0;
       background:var(--rosa2);
@@ -230,6 +234,32 @@
   background:linear-gradient(135deg,var(--dorado),var(--rosa));
   color:#fff;
 }
+
+/* ===== CONTACTO ===== */
+.contacto-box{
+  max-width:500px;
+  margin:0 auto;
+  background:#fff;
+  padding:30px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+}
+
+.contacto-box p{
+  margin:20px 0;
+  font-size:16px;
+}
+
+.contacto-box a{
+  color:#444;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.contacto-box a:hover{
+  color:var(--dorado);
+}
     
   </style>
 </head>
@@ -241,11 +271,9 @@
 </header>
 
 <nav>
-  <nav>
   <a href="#inicio">Inicio</a>
   <a href="#productos">Productos</a>
   <a href="#contacto">Contacto</a>
-</nav>
 </nav>
 
 <section id="inicio">
@@ -322,6 +350,38 @@
   </div>
 </section>
 
+<section id="contacto">
+  <div class="titulo-seccion">
+    <h3>
+      Contacto
+      <span class="script">SUSU</span>
+    </h3>
+  </div>
+
+  <div class="contacto-box">
+    <p>
+      📧 <strong>Correo:</strong><br>
+      <a href="mailto:sgaiboranrango.anam@gmail.com">
+        sgaiboranrango.anam@gmail.com
+      </a>
+    </p>
+
+    <p>
+      💬 <strong>WhatsApp:</strong><br>
+      <a href="https://wa.me/5491158825695" target="_blank">
+        +54 9 11 5882 5695
+      </a>
+    </p>
+
+    <p>
+      📸 <strong>Instagram:</strong><br>
+      <a href="https://instagram.com/libretas_susu" target="_blank">
+        @libretas_susu
+      </a>
+    </p>
+  </div>
+</section>
+  
 <footer>
   © 2026 Cuadernos SUSU
 </footer>
