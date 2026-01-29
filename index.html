@@ -581,16 +581,15 @@ select {
 
 <script>
 let carrito = 0;
-let productoActual = {};
 
-/* --- TU CÓDIGO EXISTENTE --- */
+/* ABRIR MODAL */
 function abrirModal(nombre, precio, imagen, tipo){
   document.getElementById('modalProducto').style.display = 'flex';
   document.getElementById('modalNombre').innerText = nombre;
   document.getElementById('modalPrecio').innerText = precio;
   document.getElementById('modalImg').src = imagen;
 
-  // ocultar ambos por defecto
+  // ocultar ambos
   document.getElementById('tipoHoja').style.display = 'none';
   document.getElementById('tipoHojaFichero').style.display = 'none';
 
@@ -601,35 +600,28 @@ function abrirModal(nombre, precio, imagen, tipo){
   if (tipo === 'fichero') {
     document.getElementById('tipoHojaFichero').style.display = 'block';
   }
-
-function cerrarModal(){
-  document.getElementById('modalProducto').style.display='none';
 }
 
+/* CERRAR MODAL */
+function cerrarModal(){
+  document.getElementById('modalProducto').style.display = 'none';
+}
+
+/* CARRITO */
 function agregarCarrito(){
-  carrito++;
   alert("Producto agregado al carrito 🛒");
   cerrarModal();
 }
 
-let hojaSeleccionada = null;
+/* CANTIDAD */
 let cantidadActual = 1;
-
-function seleccionarHoja(btn){
-  document.querySelectorAll('.opciones-grid button')
-    .forEach(b => b.classList.remove('activo'));
-
-  btn.classList.add('activo');
-  hojaSeleccionada = btn.innerText;
-}
-
 function cambiarCantidad(valor){
   cantidadActual += valor;
   if(cantidadActual < 1) cantidadActual = 1;
   document.getElementById("cantidad").value = cantidadActual;
 }
 
-/* --- CARRUSEL FADE SUAVE --- */
+/* CARRUSEL FADE */
 const imagenes = document.querySelectorAll('.carousel-fade img');
 let index = 0;
 
@@ -637,7 +629,7 @@ setInterval(() => {
   imagenes[index].classList.remove('activo');
   index = (index + 1) % imagenes.length;
   imagenes[index].classList.add('activo');
-}, 4000); // cambia cada 4 segundos
+}, 4000);
 </script>
   
 </body>
