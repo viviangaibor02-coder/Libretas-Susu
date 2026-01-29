@@ -222,21 +222,24 @@ footer{
 
 .flecha{
   position:absolute;
-  background:rgba(0,0,0,.5);
-  color:#fff;
+  background:rgba(255,255,255,0.75);
+  color:#444;
   border:none;
-  font-size:22px;
-  padding:8px 12px;
+  font-size:20px;
+  width:38px;
+  height:38px;
   cursor:pointer;
   border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+  transition:all .25s ease;
 }
 
-.flecha:first-child{
-  left:10px;
-}
-
-.flecha:last-child{
-  right:10px;
+.flecha:hover{
+  background:#f7d9e3;
+  transform:scale(1.1);
 }
   
 
@@ -654,11 +657,14 @@ select {
   <div class="modal-contenido">
     <span class="cerrar" onclick="cerrarModal()">✖</span>
 
-   <div class="modal-galeria">
+  <div class="modal-galeria">
   <button class="flecha" onclick="cambiarImagen(-1)">❮</button>
   <img id="modalImg">
   <button class="flecha" onclick="cambiarImagen(1)">❯</button>
 </div>
+
+<h3 id="modalNombre"></h3>
+<p class="precio" id="modalPrecio"></p>
 
    <!-- SOLO PARA CUADERNOS -->
 <div id="tipoHoja" style="display:none">
