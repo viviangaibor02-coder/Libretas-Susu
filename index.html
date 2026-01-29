@@ -391,6 +391,20 @@ select {
   background:#fff;
 }
 
+  /* PRODUCTOS - PC */
+.productos-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+
+/* PRODUCTOS - CELULAR */
+@media(max-width:768px){
+  .productos-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+  
 </style>
 </head>
 
