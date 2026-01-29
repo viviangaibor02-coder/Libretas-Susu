@@ -472,10 +472,11 @@ select {
   </div>
 </div>
 
-  <script>
+<script>
 let carrito = 0;
 let productoActual = {};
 
+/* --- TU CÓDIGO EXISTENTE --- */
 function abrirModal(nombre, precio, imagen, esCuaderno){
   document.getElementById('modalProducto').style.display='flex';
   document.getElementById('modalNombre').innerText = nombre;
@@ -497,6 +498,7 @@ function agregarCarrito(){
   alert("Producto agregado al carrito 🛒");
   cerrarModal();
 }
+
 let hojaSeleccionada = null;
 let cantidadActual = 1;
 
@@ -513,7 +515,16 @@ function cambiarCantidad(valor){
   if(cantidadActual < 1) cantidadActual = 1;
   document.getElementById("cantidad").innerText = cantidadActual;
 }
-    
+
+/* --- CARRUSEL FADE SUAVE --- */
+const imagenes = document.querySelectorAll('.carousel-fade img');
+let index = 0;
+
+setInterval(() => {
+  imagenes[index].classList.remove('activo');
+  index = (index + 1) % imagenes.length;
+  imagenes[index].classList.add('activo');
+}, 4000); // cambia cada 4 segundos
 </script>
   
 </body>
