@@ -105,11 +105,16 @@
     }
 
     /* ===== PRODUCTOS ===== */
-    .productos{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:22px;
-    }
+   .productos{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:30px;
+}
+@media(max-width:500px){
+  .productos{
+    grid-template-columns:1fr;
+  }
+}
 
   .card{
   background:#fff;
@@ -522,13 +527,6 @@
   </div>
 </div>
 
-<section id="cuadernos">
-  <div class="titulo-seccion">
-    <h3>Cuadernos <span class="script">A4 y A5</span></h3>
-  </div>
-
-<div class="productos">
- <!-- CARD DEL PRODUCTO -->
 <div class="card">
   <img src="imagenes/3A4.jpeg" alt="Cuaderno A4">
   <h4>Cuaderno A4</h4>
@@ -592,8 +590,6 @@
     <h3>Cuadernos <span class="script">A4 y A5</span></h3>
   </div>
 
-<div class="productos">
- <!-- CARD DEL PRODUCTO -->
 <div class="card">
   <img src="imagenes/3A4.jpeg" alt="Cuaderno A4">
   <h4>Cuaderno A4</h4>
@@ -652,13 +648,6 @@
   </div>
 </div>
 
-<section id="cuadernos">
-  <div class="titulo-seccion">
-    <h3>Cuadernos <span class="script">A4 y A5</span></h3>
-  </div>
-
-<div class="productos">
- <!-- CARD DEL PRODUCTO -->
 <div class="card">
   <img src="imagenes/3A4.jpeg" alt="Cuaderno A4">
   <h4>Cuaderno A4</h4>
