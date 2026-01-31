@@ -353,11 +353,14 @@
     
 .foto-activa{
   width:100%;
-  max-height:300px;
-  object-fit:cover;
+  max-height:320px;
+  object-fit:contain; /* ✅ NO recorta */
+  background:#fff;
+  padding:10px;
   margin-bottom:15px;
-  border-radius:12px;
+  border-radius:14px;
 }
+
     
 .detalles-adicionales{
   margin:15px 0;
