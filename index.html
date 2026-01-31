@@ -525,6 +525,7 @@
   
   <button 
     class="btn abrir-detalles"
+    data-tipo="cuaderno"
     data-nombre="Cuaderno A4"
     data-subtitulo="Anatomía Humana"
     data-precio="$11.000"
@@ -554,6 +555,7 @@
 
   <button 
     class="btn abrir-detalles"
+    data-tipo="cuaderno"
     data-nombre="Cuaderno A4"
     data-subtitulo="Anatomía Humana"
     data-precio="$11.000"
@@ -666,7 +668,7 @@
   
     <!-- SELECTORES -->
 <div class="selectores">
-  <div class="selector">
+ <div class="selector" id="selector-hoja">
     <label for="tipo-hoja">Tipo de hoja</label>
     <select id="tipo-hoja">
       <option>Rayada</option>
@@ -709,7 +711,30 @@ document.querySelectorAll('.abrir-detalles').forEach(btn=>{
     imagenes = JSON.parse(btn.dataset.imagenes);
     indice = 0;
     modalImg.src = imagenes[indice];
+// ===== CONTROL SELECTOR TIPO DE HOJA =====
+const selectorHoja = document.getElementById('selector-hoja');
+const tipoHoja = document.getElementById('tipo-hoja');
 
+// ocultar por defecto
+selectorHoja.style.display = 'none';
+// CUADERNOS
+if (btn.dataset.tipo === "cuaderno") {
+  selectorHoja.style.display = 'block';
+  tipoHoja.innerHTML = `
+    <option>Rayada</option>
+    <option>Cuadriculada</option>
+    <option>Lisa</option>
+    <option>Punteada</option>
+  `;
+}
+// FICHEROS (sin cuadriculada)
+if (btn.dataset.tipo === "fichero") {
+  selectorHoja.style.display = 'block';
+  tipoHoja.innerHTML = `
+    <option>Rayada</option>
+    <option>Lisa</option>
+  `;
+}
     modal.style.display = 'block';
   });
 });
