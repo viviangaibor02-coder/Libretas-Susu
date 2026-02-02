@@ -887,7 +887,7 @@
   </div>
 </section>
 <footer>
-  © 2026 Cuadernos SUSU
+  © 2026 Libretas SUSU
 </footer>
 
 <!-- MODAL ÚNICO -->
@@ -942,7 +942,7 @@ let indice = 0;
 document.querySelectorAll('.abrir-detalles').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     modalNombre.textContent = btn.dataset.nombre;
-    modalSubtitulo.textContent = btn.dataset.subtitulo;
+    modalSubtitulo.textContent = btn.dataset.subtitulo || "";
     modalPrecio.textContent = btn.dataset.precio;
     modalDetalles.innerHTML = btn.dataset.detalles;
 
