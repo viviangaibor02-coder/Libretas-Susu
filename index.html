@@ -15,7 +15,6 @@
       --dorado:#c9a24d;
       --gris:#333;
     }
-    
     *{
       box-sizing:border-box;
       font-family:'Poppins', sans-serif;
@@ -38,7 +37,6 @@
       padding:20px;
       border-bottom:3px solid var(--rosa);
     }
-
     header img{
       max-width:230px;
     }
@@ -49,7 +47,6 @@
       padding:12px;
       text-align:center;
     }
-
     nav a{
       margin:0 12px;
       font-weight:600;
@@ -71,7 +68,6 @@
       border-radius:25px;
       padding:55px 30px;
     }
-
     #inicio h3{
       font-size:34px;
       font-weight:700;
@@ -97,7 +93,6 @@
       text-align:center;
       margin-bottom:35px;
     }
-
     .titulo-seccion h3{
       font-size:32px;
       font-weight:700;
@@ -137,7 +132,6 @@
   font-size:17px;
   margin-bottom:14px;
 }
-
    .card img{
   width:100%;
   height:260px;
@@ -146,7 +140,12 @@
   padding:10px;
   border-radius:14px;
 }
- 
+.detalle-card{
+  font-size:14px;
+  color:#777;
+  margin-bottom:8px;
+}
+
     .precio{
       color:var(--dorado);
       font-weight:700;
@@ -166,7 +165,6 @@
       box-shadow:0 4px 8px rgba(0,0,0,.12);
       transition:all .3s ease;
     }
-
     .btn:hover{
       background:linear-gradient(135deg,var(--dorado),var(--rosa));
       color:#fff;
@@ -245,7 +243,7 @@
   border-radius:25px;
   box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
-
+    
 /* HOVER */
 .categoria-card:hover{
   transform:translateY(-6px);
@@ -444,7 +442,6 @@
   50%{transform:scale(1.03);}
   100%{transform:scale(1);}
 }
-
     
 .detalles-adicionales{
   margin:15px 0;
@@ -627,6 +624,7 @@
      
       <button class="btn abrir-detalles"
         data-nombre="Agenda de stitch"
+        data-subtitulo="Premium · 12 meses"
         data-precio="$17.000"
         data-imagenes='[
   "imagenes/stitch1.jpeg",
@@ -654,6 +652,7 @@
      
       <button class="btn abrir-detalles"
         data-nombre="Agenda Diaria A5"
+        data-subtitulo="Premium · 12 meses"
         data-precio="$14.00"
        data-imagenes='[
   "agenda1.jpg",
